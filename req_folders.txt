@@ -15,3 +15,17 @@
 !mkdir data1/test/normal
 !mkdir data1/test/covid
 !mkdir data1/test/pneumonia
+
+
+├── data
+│   ├── test
+│   └── train
+├── data1
+│   ├── test
+│   │   ├── covid
+│   │   ├── normal
+│   │   └── pneumonia
+│   └── train
+│       ├── covid
+│       ├── normal
+│       └── pneumonia
