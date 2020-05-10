@@ -6,11 +6,9 @@ Run:
 
 Please run code as this order:
 1- Please make the directories as said in req_folders.txt. 
-
-2- For ResNet101 model run ResNet10.ipynb for making model and predict on test data.
-
-3- For our prposed Network, run COVID-19_SmallNet.ipynb for making model and predict on test data.
-
-you can download it and run CPVID-SmallerNet.ipynb or ResNet10.ipynb for training.
+2- Run train.py file for training and set args parameters:
+for example:
+"python3 train.py --data_path data1 --model resnet101 --epochs 1 --nc 3"
+3- For predict on test data run predict.py
 
 Also you can use this link for lower size data on my Drive: https://drive.google.com/drive/folders/1wRlyUvE4kA4FCupgOTqvKd6I16wLExWo
