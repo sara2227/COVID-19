@@ -147,14 +147,15 @@ model.compile(loss='binary_crossentropy',
 # model.summary()
 
 #path for saving checpoints:
-filepath="./check_points/" + model_name + "-{epoch:02d}-{loss:.4f}.h5"
+filepath="./check_points/" + num_classes + 'class_',model_name + "-{epoch:02d}-{loss:.4f}.h5"
+# filepath="./check_points/" + model_name + "-{epoch:02d}-{loss:.4f}.h5"
 #saving the checkpoints:
 checkpoint = ModelCheckpoint(filepath, monitor='loss', verbose=1, save_best_only=True, mode='min')
 callbacks_list = [checkpoint]
 H = model.fit_generator(aug.flow(trainX, trainY, batch_size=batch_size),
                         validation_data=(valX,valY),
                         steps_per_epoch=len(trainX) // batch_size,
-                        epochs=epochs, verbose=1)
+                        epochs=epochs, verbose=1,
                         callbacks=callbacks_list)
 
 #if you want saving last model without checkpoints comment top block and uncomment this block:
