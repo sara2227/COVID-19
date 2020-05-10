@@ -5,8 +5,7 @@ This work, in particular, evaluates the performance of various DCNN architecture
 Run:
 
 Please run code as this order:
-
-1- Run MakingDataset.ipynb for download and make dataset, then you must create two folder as data and data1. In data1 create two folders as train and test, in which each of them create three new folder and rename these to:normal,covid and pneumonia.
+1- Please make the directories as said in req_folders.txt. 
 
 2- For ResNet101 model run ResNet10.ipynb for making model and predict on test data.
 
