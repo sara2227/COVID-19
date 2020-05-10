@@ -13,7 +13,7 @@ def bar_progress(current, total, width=80):
     sys.stdout.write("\r" + progress_message)
     sys.stdout.flush()
 #download RSNA dataset    
-url_RSNA = 'https://storage.googleapis.com/kaggle-competitions-data/kaggle-v2/10338/862042/bundle/archive.zip?GoogleAccessId=web-data@kaggle-161607.iam.gserviceaccount.com&Expires=1588695923&Signature=tCVFbo3EHc9CS1jOsEojDsPoJoH5Wm9V58H9YCVhVmbXQQMuQqZq0I%2FS48eH8%2FOIBTdxgD%2BT8dJZttrC%2F4v58jU0aT9WsHGV3mO9rY%2Fv9km3%2BZfjH6NkKEDya2uf71XU7XXdJ2m%2BauVSpJW83oMSl3HJGxoGdNB3J11Vnt7Vt9%2BfH6syaUAY%2Bby9AbCZQaOY00o0UN%2FU4jJkz0ukHuwhe3RUWgexn%2FlYnRIIO%2FVLoVYvRtJO6pmzZXMlvQ8tbDoW256cP6dL24BFWIp8yxWW9w4EDFNxwnmUCf2KJAquCdRjt835ozY6IHqWwyRYC9kp1gDslj%2BmuTzBStT%2Bn7l4%2BA%3D%3D&response-content-disposition=attachment%3B+filename%3Drsna-pneumonia-detection-challenge.zip'
+url_RSNA = 'https://storage.googleapis.com/kaggle-competitions-data/kaggle-v2/10338/862042/bundle/archive.zip?GoogleAccessId=web-data@kaggle-161607.iam.gserviceaccount.com&Expires=1589354825&Signature=Byz5ymMzLH5kgYsUNyGFahuCDegRwMt6kzMopOhu2o%2BxX7%2F2Zwmk27%2FbzWo02j%2F9b7cE2albO2bqIirsvBB4y3wBcS%2F%2Fx8p%2FzWMSh47wToq18MrW1NMUSXy5%2FMbbjYx6b%2FnhK7LFvvPNQ1%2Bq%2FvZQiuKMZPqtUzd3fjvm91oEhlv7%2FSu%2FJYvIPLizx9jkeNnOvyqnK%2FfaB3NagaA5fGuFr2mrsN%2BtMSSBXT5b5ruPoUNEclaYnwXMcnpby%2BKtzgm%2FwYx4iMvTlgSFXp2vNz93H0jzxKUR32ASqxCGUdF3mw9dDXEbmAfCGCqWX0ipmtGOifLRnhCSvtAlKwuqp1v6rQ%3D%3D&response-content-disposition=attachment%3B+filename%3Drsna-pneumonia-detection-challenge.zip'
 wget.download(url_RSNA,'./RSNA',bar=bar_progress)
 
 with zipfile.ZipFile("rsna-pneumonia-detection-challenge.zip","r") as zip_ref:
