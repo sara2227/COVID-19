@@ -16,7 +16,7 @@
 !mkdir data1/test/covid
 !mkdir data1/test/pneumonia
 
-
+tree:
 ├── data
 │   ├── test
 │   └── train
