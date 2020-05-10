@@ -1,0 +1,17 @@
+!mkdir data
+!mkdir data/train
+!mkdir data/test
+!mkdir RSNA
+!mkdir check_points
+!mkdir data1
+!mkdir data1/train
+!mkdir data1/test
+!mkdir figures
+
+!mkdir data1/train/normal
+!mkdir data1/train/covid
+!mkdir data1/train/pneumonia
+
+!mkdir data1/test/normal
+!mkdir data1/test/covid
+!mkdir data1/test/pneumonia
