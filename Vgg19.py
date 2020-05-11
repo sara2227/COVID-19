@@ -31,7 +31,7 @@ from plot import plot
 
 
 # initial parameters
-data_path = './data_low'
+data_path = './data1'
 model_name = 'vgg19'
 epochs = 200
 lr = 1e-3
