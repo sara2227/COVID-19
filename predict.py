@@ -1,4 +1,5 @@
 from keras.models import load_model
+from keras.preprocessing.image import img_to_array
 import glob
 import seaborn as sns
 import numpy as np
@@ -10,6 +11,7 @@ import argparse
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import confusion_matrix,classification_report
 import matplotlib
+import matplotlib.pyplot as plt
 matplotlib.use("Agg")
 
 ap = argparse.ArgumentParser()
@@ -28,7 +30,8 @@ args = ap.parse_args()
 model_path = args.model_path
 data_path = args.data_path
 num_classes = args.nc
-
+model_name = args.model_name
+img_dims = args.input_dim
 #making test dataset:
 data_test = []
 labels_test = []
@@ -67,7 +70,7 @@ for img in image_files:
 data_test = np.array(data_test, dtype="float") / 255.0
 print('test_data.shape:',data_test.shape)
 
-model = load_model(model_path + model_name) 
+model = load_model(model_path + str(model_name)) 
 labels_pred = model.predict_classes(data_test, batch_size=40)
 
 cm = confusion_matrix(labels_test, labels_pred, labels=cm_labels)
@@ -84,4 +87,4 @@ ax.set_xlabel('Predicted labels');ax.set_ylabel('True labels');
 ax.set_title('Confusion Matrix'); 
 ax.xaxis.set_ticklabels(['covid', 'normal','pneumonia']);
 ax.yaxis.set_ticklabels(['covid', 'normal','pneumonia']);
-plt.savefig('./figures/'+ 'cm_' + model_name+'.png') 
+plt.savefig('./figures/'+'cm_' +model_name+'.png')
