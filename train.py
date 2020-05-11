@@ -115,15 +115,15 @@ aug = ImageDataGenerator(rotation_range=25, width_shift_range=0.1,
 #set the model      
 model=''                   
 if model_name=='inception':
-    model == inception_resnet_v2.InceptionResNetV2(include_top=False,weights='imagenet',input_shape=img_dims)
+    model = inception_resnet_v2.InceptionResNetV2(include_top=False,weights='imagenet',input_shape=img_dims)
 elif model_name in ['vgg16','VGG16']:
-    model == vgg16.VGG16(include_top=False, weights='imagenet',input_shape=img_dims)
+    model = vgg16.VGG16(include_top=False, weights='imagenet',input_shape=img_dims)
 elif model_name in ['vgg19','VGG19']:
-    model == vgg19.VGG19(include_top=False, weights='imagenet',input_shape=img_dims)
+    model = vgg19.VGG19(include_top=False, weights='imagenet',input_shape=img_dims)
 elif model_name in ['resnet50','ResNet50']:
-    model == ResNet50(include_top=False, weights='imagenet',input_shape=img_dims)
+    model = ResNet50(include_top=False, weights='imagenet',input_shape=img_dims)
 elif model_name in ['resnet101','ResNet101']:
-    model == resnet.ResNet101(include_top=False, weights='imagenet',input_shape=img_dims)
+    model = resnet.ResNet101(include_top=False, weights='imagenet',input_shape=img_dims)
 # print(model.summary())
 
 #fine tuning
