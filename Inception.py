@@ -33,13 +33,15 @@ from plot import plot
 # initial parameters
 data_path = './data1'
 model_name = 'inception'
-epochs = 200
+epochs = 1
 lr = 1e-3
 batch_size = 32
 img_dims = (256,256,3)
 num_classes = 3
+
 print('data_path:',data_path,' model:',model_name,' epochs:',epochs,
     ' learning rate:',lr,' batch size:',batch_size,' input dimension:',img_dims)
+
 
 #labels: covid:0,normal:1,pneumonia:2
 data = []
@@ -47,7 +49,7 @@ labels = []
 covid_count=0
 normal_count=0
 pneu_conut = 0
-# load image files from the dataset
+print('loading images from train data:')
 image_files = [f for f in glob.glob(data_path+'/train' + "/**/*", recursive=True) if not os.path.isdir(f)] 
 random.seed(42)
 random.shuffle(image_files)
@@ -93,20 +95,21 @@ print('trainX.shape:',trainX.shape,' valX.shape:',valX.shape)
 aug = ImageDataGenerator(rotation_range=25, width_shift_range=0.1,
                          height_shift_range=0.1, shear_range=0.2, zoom_range=0.2,
                          horizontal_flip=True, fill_mode="nearest")
-
+print("loading the model")
 #set the model      
 model=''                   
-if model_name== in ['inception','Inception']
-    model == inception_resnet_v2.InceptionResNetV2(include_top=False,weights='imagenet',input_shape=img_dims)
+if model_name=='inception':
+    model = inception_resnet_v2.InceptionResNetV2(include_top=False,weights='imagenet',input_shape=img_dims)
 elif model_name in ['vgg16','VGG16']:
-    model == vgg16.VGG16(include_top=False, weights='imagenet',input_shape=img_dims)
+    model = vgg16.VGG16(include_top=False, weights='imagenet',input_shape=img_dims)
 elif model_name in ['vgg19','VGG19']:
-    model == vgg19.VGG19(include_top=False, weights='imagenet',input_shape=img_dims)
+    model = vgg19.VGG19(include_top=False, weights='imagenet',input_shape=img_dims)
 elif model_name in ['resnet50','ResNet50']:
-    model == ResNet50(include_top=False, weights='imagenet',input_shape=img_dims)
+    model = ResNet50(include_top=False, weights='imagenet',input_shape=img_dims)
 elif model_name in ['resnet101','ResNet101']:
-    model == resnet.ResNet101(include_top=False, weights='imagenet',input_shape=img_dims)
+    model = resnet.ResNet101(include_top=False, weights='imagenet',input_shape=img_dims)
 # print(model.summary())
+
 
 #fine tuning
 output = model.layers[-1].output
@@ -129,7 +132,7 @@ model.compile(loss='binary_crossentropy',
 # model.summary()
 
 #path for saving checpoints:
-filepath="./check_points/" + num_classes + 'class_'+model_name + "-{epoch:02d}-{loss:.4f}.h5"
+filepath="./check_points/" + str(num_classes) + 'class_'+model_name + "-{epoch:02d}-{loss:.4f}.h5"
 #saving the checkpoints:
 checkpoint = ModelCheckpoint(filepath, monitor='loss', verbose=1, save_best_only=True, mode='min')
 callbacks_list = [checkpoint]
@@ -146,7 +149,5 @@ H = model.fit_generator(aug.flow(trainX, trainY, batch_size=batch_size),
 #                         epochs=epochs, verbose=1)
 # model.save('./check_points/' + model_name+'.model')
 
-# plot(H,epochs,model_name)
-
-
+plot(H,epochs,model_name)
 
