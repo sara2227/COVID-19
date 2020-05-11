@@ -69,9 +69,9 @@ pneu_conut = 0
 image_files = [f for f in glob.glob(data_path+'/train' + "/**/*", recursive=True) if not os.path.isdir(f)] 
 random.seed(42)
 random.shuffle(image_files)
-
+print("Loading train data")
 # create groud-truth label from the image path
-for img in image_files[0:100]:
+for img in image_files:
 
     image = cv2.imread(img)
     
@@ -111,7 +111,7 @@ print('trainX.shape:',trainX.shape,' valX.shape:',valX.shape)
 aug = ImageDataGenerator(rotation_range=25, width_shift_range=0.1,
                          height_shift_range=0.1, shear_range=0.2, zoom_range=0.2,
                          horizontal_flip=True, fill_mode="nearest")
-
+print("loading the model")
 #set the model      
 model=''                   
 if model_name=='inception':
@@ -145,7 +145,7 @@ model.compile(loss='binary_crossentropy',
               optimizer=optimizers.RMSprop(lr=2e-5),
               metrics=['accuracy'])
 # model.summary()
-
+print("training:")
 #path for saving checpoints:
 filepath="./check_points/" + str(num_classes) + 'class_' + model_name + "-{epoch:02d}-{loss:.4f}.h5"
 # filepath="./check_points/" + model_name + "-{epoch:02d}-{loss:.4f}.h5"
