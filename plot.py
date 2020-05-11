@@ -1,5 +1,7 @@
-import matplotlib as plt
-plt.use("Agg")
+import matplotlib.pyplot as plt
+import matplotlib
+matplotlib.use("Agg")
+import numpy as np
 
 def plot(model_history,epochs,model_name):
     history = model_history
