@@ -9,7 +9,7 @@ Please run code as this order:
 2- pip install -r requirements.txt
 3- Run train.py file for training and set args parameters:
 for example:
-"python3 train.py --data_path data1 --model resnet101 --epochs 1 --nc 3"
+    python3 train.py --data_path data1 --model resnet101 --epochs 1 --nc 3
 4- For predict on test data run predict.py
 
 
