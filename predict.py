@@ -84,4 +84,4 @@ ax.set_xlabel('Predicted labels');ax.set_ylabel('True labels');
 ax.set_title('Confusion Matrix'); 
 ax.xaxis.set_ticklabels(['covid', 'normal','pneumonia']);
 ax.yaxis.set_ticklabels(['covid', 'normal','pneumonia']);
-plt.savefig('./figures/'+cm_' +model_name+'.png')
+plt.savefig('./figures/'+ 'cm_' + model_name+'.png') 
