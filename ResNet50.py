@@ -33,7 +33,7 @@ from plot import plot
 # initial parameters
 data_path = './data1'
 model_name = 'resnet50'
-epochs = 200
+epochs = 1
 lr = 1e-3
 batch_size = 32
 img_dims = (256,256,3)
@@ -55,7 +55,7 @@ random.seed(42)
 random.shuffle(image_files)
 
 # create groud-truth label from the image path
-for img in image_files[0:100]:
+for img in image_files:
 
     image = cv2.imread(img)
     
