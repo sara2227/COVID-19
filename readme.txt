@@ -9,8 +9,10 @@ Please run code as this order:
 2- pip install -r requirements.txt
 3- Run train.py file for training and set args parameters:
 for example:
-    python3 train.py --data_path data1 --model resnet101 --epochs 1 --nc 3
-4- For predict on test data run predict.py
+    python train.py --data_path data1 --model resnet101 --epochs 1 --nc 3
+4- For predict on test data run predict.py and set parameters:
+for example:
+    python predict.py --model_name '2class_vgg16-01-0.6100.h5' --nc 2 --data_path data1
 
 
 Also you can use this link for lower size data on my Drive: https://drive.google.com/drive/folders/1wRlyUvE4kA4FCupgOTqvKd6I16wLExWo
