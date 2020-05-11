@@ -35,11 +35,11 @@ ap.add_argument("--data_path", required=True,
     help="path to input image")
 ap.add_argument("--model", required=True,
     help="model for training")
-ap.add_argument("--epochs", required=True,
+ap.add_argument("--epochs", required=True,type=int,
     help="number of epoch")
 ap.add_argument("--lr",default= 1e-3,type=float,
     help="learning rate")
-ap.add_argument("--batch_size",default= 128,type=int,
+ap.add_argument("--batch_size",default= 5,type=int,
     help="batch size")
 ap.add_argument("--input_dim",default= (256,256,3),
     help="input dimension")
@@ -71,7 +71,7 @@ random.seed(42)
 random.shuffle(image_files)
 
 # create groud-truth label from the image path
-for img in image_files:
+for img in image_files[0:100]:
 
     image = cv2.imread(img)
     
@@ -166,6 +166,3 @@ H = model.fit_generator(aug.flow(trainX, trainY, batch_size=batch_size),
 # model.save('./check_points/' + model_name+'.model')
 
 plot(H,epochs,model_name)
-
-
-
