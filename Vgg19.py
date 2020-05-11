@@ -41,16 +41,6 @@ num_classes = 3
 
 print('data_path:',data_path,' model:',model_name,' epochs:',epochs,
     ' learning rate:',lr,' batch size:',batch_size,' input dimension:',img_dims)
-# initial parameters
-data_path = args.data_path
-model_name = args.model
-epochs = args.epochs
-lr = args.lr
-batch_size = args.batch_size
-img_dims = args.input_dim
-num_classes = args.nc
-print('data_path:',data_path,' model:',model_name,' epochs:',epochs,
-    ' learning rate:',lr,' batch size:',batch_size,' input dimension:',img_dims)
 
 #labels: covid:0,normal:1,pneumonia:2
 data = []
