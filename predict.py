@@ -14,24 +14,34 @@ import matplotlib
 import matplotlib.pyplot as plt
 matplotlib.use("Agg")
 
-ap = argparse.ArgumentParser()
-ap.add_argument("--data_path", required=True,
-    help="path to test images")
-ap.add_argument("--model_path", default='./check_points/',
-    help="path to model")
-ap.add_argument("--model_name",required=True,
-    help="model name for predict")
-ap.add_argument("--nc",required=True,type=int,
-    help="number of classes")
-ap.add_argument("--input_dim",default= (256,256,3),
-    help="input dimension")
-args = ap.parse_args()
+# ap = argparse.ArgumentParser()
+# ap.add_argument("--data_path", required=True,
+#     help="path to test images")
+# ap.add_argument("--model_path", default='./check_points/',
+#     help="path to model")
+# ap.add_argument("--model_name",required=True,
+#     help="model name for predict")
+# ap.add_argument("--nc",required=True,type=int,
+#     help="number of classes")
+# ap.add_argument("--input_dim",default= (256,256,3),
+#     help="input dimension")
+# args = ap.parse_args()
 
-model_path = args.model_path
-data_path = args.data_path
-num_classes = args.nc
-model_name = args.model_name
-img_dims = args.input_dim
+# model_path = args.model_path
+# data_path = args.data_path
+# num_classes = args.nc
+# model_name = args.model_name
+# img_dims = args.input_dim
+
+
+#change these parameters correspondig to your model
+model_path = './check_points/'
+data_path = './data1' 
+num_classes = 2
+model_name = '2class_vgg16-01-0.6100.h5'   #change it to your model
+img_dims = (256,256,3)
+
+
 #making test dataset:
 data_test = []
 labels_test = []
