@@ -10,4 +10,4 @@ wget
 pydicom
 pandas
 argparse
-
+seaborn
